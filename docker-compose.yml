@@ -1,0 +1,18 @@
+apache:
+  container_name: 'apache'
+  build: ./env
+  dockerfile: Dockerfile.php-apache
+  ports:
+    - "80:80"
+  volumes:
+    - "./app/www:/var/www/html"
+    - "./app/log/apache:/var/log/apache2"
+  environment:
+    - APACHE_LOG_DIR=/var/log/apache2
+
+php-fpm:
+  container_name: 'php-fpm'
+  build: ./env
+  dockerfile: Dockerfile.php-fpm
+  ports:
+    - "9000:9000"

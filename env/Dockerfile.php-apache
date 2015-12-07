@@ -1,0 +1,4 @@
+FROM php:7-apache
+
+ADD ./conf/php.ini /usr/local/etc/php/php.ini
+RUN ln -s /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/
